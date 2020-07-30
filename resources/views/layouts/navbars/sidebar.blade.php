@@ -25,7 +25,7 @@
             <b class="caret"></b>
           </p>
         </a>
-        <div class="collapse @if($activePage == 'pasien' OR $activePage == 'dokter') show @endif" id="laravelExamples">
+        <div class="collapse @if($activePage == 'pasien' OR $activePage == 'dokter' or $activePage == 'poli') show @endif" id="laravelExamples">
           <ul class="nav">
               <li class="@if ($activePage == 'pasien') active @endif">
                   <a href="{{ route('pasien.index') }}">
@@ -49,6 +49,12 @@
                   <a href="{{ route('dokter.index') }}">
                       <i class="now-ui-icons users_single-02"></i>
                       <p>{{ __('Tenaga Medis') }}</p>
+                  </a>
+              </li>
+              <li class="@if ($activePage == 'poli') active @endif">
+                  <a href="{{ route('poli.index') }}">
+                      <i class="now-ui-icons users_single-02"></i>
+                      <p>{{ __('Poli') }}</p>
                   </a>
               </li>
             <li class="@if ($activePage == 'profile') active @endif">

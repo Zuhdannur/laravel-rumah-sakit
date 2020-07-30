@@ -26,9 +26,16 @@ Route::group(['middleware' => 'auth:web'] , function () {
     Route::resource('/rekam-medis','RekamMedisController');
     Route::get('/rekam-medis/data/getData','RekamMedisController@getData');
 
-    Route::get('/getPasien','ApiController@getPasien');
+    Route::resource('/poli','PoliController');
+    Route::get('/poli/data/getData','PoliController@getData');
+
+
     Route::get('/getDokter','ApiController@getDokter');
 });
+
+Route::resource('/antrian','AntrianController');
+Route::get('/getPasien','ApiController@getPasien');
+Route::get('/getPoli','ApiController@getPoli');
 
 Route::resource('/login','LoginController');
 Route::resource('/register','RegisterController');
