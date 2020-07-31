@@ -21,7 +21,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="{{ route('register.store') }}">
+                            <form method="POST" action="{{ route('antrian.store') }}">
                             @csrf
                             <!--Begin input name -->
                                 <div class="form-group">

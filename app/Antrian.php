@@ -12,4 +12,9 @@ class Antrian extends Model
 
     public $guarded = [];
 
+    public function kodefikasi()
+    {
+        return $this->hasOne('\App\Poli','id_poli','id_poli');
+    }
+
 }

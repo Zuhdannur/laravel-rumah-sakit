@@ -60,9 +60,15 @@ class PoliController extends Controller
             $d = [];
             $d[] = $i++;
             $d[] = $row->nama_poli;
-            $button = '<button type="button" rel="tooltip" class="btn btn-danger btn-sm btn-icon">
+            $d[] = $row->kodefikasi;
+            $button = '
+    <form action="'. route('poli.destroy',$row->id_poli) .'" method="post">
+    <input type="text" name="_token" value="'. csrf_token() .'" hidden>
+    <input type="text" name="_method" value="delete" hidden>
+    <button type="submit" rel="tooltip" class="btn btn-danger btn-sm btn-icon">
                     <i class="now-ui-icons ui-1_simple-remove"></i>
-                 </button>';
+                 </button></form>
+';
             $d[] = $button;
             $data['data'][] = $d;
         }
@@ -76,5 +82,10 @@ class PoliController extends Controller
 
         return response()->json($data);
 
+    }
+
+    public function destroy($id) {
+        $delete = \App\Poli::find($id)->delete();
+        return redirect()->back()->with('success' , 'Dihapus');
     }
 }

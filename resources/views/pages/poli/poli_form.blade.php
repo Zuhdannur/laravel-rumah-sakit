@@ -21,6 +21,10 @@
                             <label for="exampleFormControlInput1">Nama Poli</label>
                             <input type="text" class="form-control" name="nama_poli" required>
                         </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Kodefikasi Poli</label>
+                            <input type="text" class="form-control" name="kodefikasi" required>
+                        </div>
                         <div class="row justify-content-end p-lg-3 p-sm-3">
                             <button rel="tooltip" class="btn btn-info btn-sm pt-sm-3 pt-lg-2" type="submit">
                                 Tambah Poli

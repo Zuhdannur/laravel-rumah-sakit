@@ -32,6 +32,9 @@
                                 Nama Poli
                             </th>
                             <th>
+                                Kodefikasi
+                            </th>
+                            <th>
                                 Aksi
                             </th>
                             </thead>
