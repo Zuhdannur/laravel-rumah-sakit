@@ -10,12 +10,11 @@
 
 @section('content')
 
-
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title"> Daftar Pasien</h4>
+                        <h4 class="card-title"> Daftar Dokter</h4>
                         <a href="{{ route('dokter.create') }}" rel="tooltip" class="btn btn-info btn-sm pt-sm-3 pt-lg-2">
                             <i class="now-ui-icons users_single-02"></i>
                             Tambah Dokter

@@ -59,4 +59,27 @@ class ApiController extends Controller
         ];
         return response()->json($json);
     }
+
+    public function generateCode(Request $request) {
+        $input = $request->all();
+
+        $date = \Carbon\Carbon::createFromFormat('d/m/Y',$request->tanggal)->format('Y-m-d');
+        $find = \App\Rujukan::whereDate('tanggal',$date)->orderBy('id_rujukan','desc')->first();
+
+        if(!empty($find)) {
+            $splitString = explode('Y',$find->nomor_rujukan);
+
+            $generatedCode = str_replace('-','',$date).'Y'.((int)$splitString[1] + 1);
+
+            return response()->json([
+                "code" => $generatedCode
+            ]);
+        }
+
+        return response()->json([
+            "code" => str_replace('-','',$date).'Y1'
+        ]);
+
+    }
+
 }

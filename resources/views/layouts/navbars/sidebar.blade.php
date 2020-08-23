@@ -25,7 +25,7 @@
             <b class="caret"></b>
           </p>
         </a>
-        <div class="collapse @if($activePage == 'pasien' OR $activePage == 'dokter' or $activePage == 'poli' or $activePage == 'obat') show @endif" id="laravelExamples">
+        <div class="collapse @if($activePage == 'pasien' OR $activePage == 'dokter' or $activePage == 'poli' or $activePage == 'obat' or $activePage == 'user') show @endif" id="laravelExamples">
           <ul class="nav">
               <li class="@if ($activePage == 'pasien') active @endif">
                   <a href="{{ route('pasien.index') }}">
@@ -39,8 +39,8 @@
                       <p>{{ __('Data Dokter') }}</p>
                   </a>
               </li>
-              <li class="@if ($activePage == '') active @endif">
-                  <a href="{{ route('dokter.index') }}">
+              <li class="@if ($activePage == 'user') active @endif">
+                  <a href="{{ route('pengguna.index') }}">
                       <i class="now-ui-icons users_single-02"></i>
                       <p>{{ __('Pengguna') }}</p>
                   </a>
@@ -121,7 +121,7 @@
                     <b class="caret"></b>
                 </p>
             </a>
-            <div class="collapse @if($activePage == 'rekam-medis' or $activePage == 'apotik') show @endif" id="ruangBerobat">
+            <div class="collapse @if($activePage == 'rekam-medis' or $activePage == 'apotik' or $activePage == 'rujukan') show @endif" id="ruangBerobat">
                 <ul class="nav">
                     <li class="@if ($activePage == 'rekam-medis') active @endif">
                         <a href="{{ route('rekam-medis.index') }}">
@@ -129,8 +129,8 @@
                             <p>{{ __('Data Rekam Medis') }}</p>
                         </a>
                     </li>
-                    <li class="@if ($activePage == '') active @endif">
-                        <a href="{{ route('pasien.index') }}">
+                    <li class="@if ($activePage == 'rujukan') active @endif">
+                        <a href="{{ route('rujukan.index') }}">
                             <i class="now-ui-icons health_ambulance"></i>
                             <p>{{ __('Rujukan') }}</p>
                         </a>

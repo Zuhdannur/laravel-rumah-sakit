@@ -39,11 +39,22 @@ Route::group(['middleware' => 'auth:web'] , function () {
     Route::resource('/apotik','ApotikController');
     Route::get('/apotik/data/getData','ApotikController@getData');
 
+    Route::resource('/pengguna','UserController');
+    Route::get('/pengguna/data/getData','UserController@getData');
+
+    Route::resource('/rujukan','RujukanController');
+    Route::prefix('/rujukan/data')->group(function (){
+        Route::get('/getData','RujukanController@getData');
+        Route::post('/acc','RujukanController@acc');
+    });
+
+
 });
 
 Route::resource('/antrian','AntrianController');
 Route::get('/getPasien','ApiController@getPasien');
 Route::get('/getPoli','ApiController@getPoli');
+Route::post('/generateCode','ApiController@generateCode');
 
 Route::resource('/login','LoginController');
 Route::resource('/register','RegisterController');

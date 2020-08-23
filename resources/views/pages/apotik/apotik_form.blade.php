@@ -23,7 +23,7 @@
                                         <option value="{{ $item->id_pasien}}">{{ $item->nama_pasien }}</option>
                                     @endforeach
                                 </select>
-                            </>
+                            </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Jenis Obat</label>
                                 <select class="form-control" name="id_obat" id="exampleFormControlSelect1">
