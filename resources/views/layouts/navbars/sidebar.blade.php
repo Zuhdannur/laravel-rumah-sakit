@@ -25,7 +25,7 @@
             <b class="caret"></b>
           </p>
         </a>
-        <div class="collapse @if($activePage == 'pasien' OR $activePage == 'dokter' or $activePage == 'poli') show @endif" id="laravelExamples">
+        <div class="collapse @if($activePage == 'pasien' OR $activePage == 'dokter' or $activePage == 'poli' or $activePage == 'obat') show @endif" id="laravelExamples">
           <ul class="nav">
               <li class="@if ($activePage == 'pasien') active @endif">
                   <a href="{{ route('pasien.index') }}">
@@ -57,6 +57,12 @@
                       <p>{{ __('Poli') }}</p>
                   </a>
               </li>
+              <li class="@if ($activePage == 'obat') active @endif">
+                             <a href="{{ route('obat.index') }}">
+                               <i class="now-ui-icons users_single-02"></i>
+                               <p> {{ __("Daftar Obat") }} </p>
+                             </a>
+                            </li>
             <li class="@if ($activePage == 'profile') active @endif">
 {{--              <a href="{{ route('profile.edit') }}">--}}
 {{--                <i class="now-ui-icons users_single-02"></i>--}}
@@ -115,7 +121,7 @@
                     <b class="caret"></b>
                 </p>
             </a>
-            <div class="collapse @if($activePage == 'rekam-medis') show @endif" id="ruangBerobat">
+            <div class="collapse @if($activePage == 'rekam-medis' or $activePage == 'apotik') show @endif" id="ruangBerobat">
                 <ul class="nav">
                     <li class="@if ($activePage == 'rekam-medis') active @endif">
                         <a href="{{ route('rekam-medis.index') }}">
@@ -135,6 +141,12 @@
                             <p>{{ __('Kartu Berobat') }}</p>
                         </a>
                     </li>
+                    <li class="@if ($activePage == 'apotik') active @endif">
+                      <a href="{{ route('apotik.index') }}">
+                          <i class="now-ui-icons design_image"></i>
+                          <p>{{ __('Apotik') }}</p>
+                      </a>
+                  </li>
                 </ul>
             </div>
         </li>

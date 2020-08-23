@@ -32,6 +32,13 @@ Route::group(['middleware' => 'auth:web'] , function () {
 
     Route::get('/getDokter','ApiController@getDokter');
     Route::post('/call-antrian/{id}','AntrianController@callAntrian');
+
+    Route::resource('/obat','ObatController');
+    Route::get('/obat/data/getData','ObatController@getData');
+
+    Route::resource('/apotik','ApotikController');
+    Route::get('/apotik/data/getData','ApotikController@getData');
+
 });
 
 Route::resource('/antrian','AntrianController');
