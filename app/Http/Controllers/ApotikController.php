@@ -31,10 +31,10 @@ class ApotikController extends Controller
             $query = $query->where(function ($q) use ($search) {
                 $q->orWhere('nama_obat','like','%'.$search['value'].'%');
                 $q->orWhereHas('pasien',function($query)  use ($search) {
-                    $q->where('nama_pasien','like','%'.$search['value'].'%');
+                    $query->where('nama_pasien','like','%'.$search['value'].'%');
                 });
                 $q->orWhereHas('jenis_obat',function($query)  use ($search) {
-                    $q->where('nama_obat','like','%'.$search['value'].'%');
+                    $query->where('nama_obat','like','%'.$search['value'].'%');
                 });
             });
         }
@@ -48,7 +48,7 @@ class ApotikController extends Controller
             $d[] = $row->pasien->nama_pasien;
             $d[] = $row->jenis_obat->nama_obat;
             $d[] = $row->nama_obat;
-            $d[] = $row->harga;
+            $d[] = $this->uang(@$row->harga);
             $d[] = $row->stock;
             $button = '
             <form method="post" action='. route('apotik.destroy',$row->id_apotik).'>
@@ -102,5 +102,11 @@ class ApotikController extends Controller
     public function destroy($id) {
         $delete = \App\Apotik::find($id)->delete();
         return redirect()->back()->with('success','Data Berhasil Di hapus');
+    }
+
+    function uang($uang)
+    {
+        $uang = number_format($uang, 0, ',', '.');
+        return $uang;
     }
 }
