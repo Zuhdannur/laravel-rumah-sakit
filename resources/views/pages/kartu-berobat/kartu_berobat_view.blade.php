@@ -1,7 +1,7 @@
 @extends('layouts.app', [
-    'namePage' => 'Daftar Rujukan Pasien',
+    'namePage' => 'Daftar Kartu Berobat',
     'class' => 'sidebar-mini',
-    'activePage' => 'rujukan',
+    'activePage' => 'kartu-berobat',
   ])
 
 @push('extra-css')
@@ -14,11 +14,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title"> Daftar Rujukan Pasien</h4>
-                    <a href="{{ route('rujukan.create') }}" rel="tooltip" class="btn btn-info btn-sm pt-sm-3 pt-lg-2">
-                        <i class="now-ui-icons users_single-02"></i>
-                        Tambah Rujukan
-                    </a>
+                    <h4 class="card-title"> Daftar Antrian Berobat</h4>
                 </div>
                 <div class="card-body">
                     <div class="row justify-content-end">
@@ -27,19 +23,13 @@
                         <table class="table" id="table_id">
                             <thead>
                             <th>
-                                No Rujukan
+                                No Antrian
                             </th>
                             <th>
                                 Nama Pasien
                             </th>
                             <th>
-                                Dari
-                            </th>
-                            <th>
-                                Di Rujuk Ke
-                            </th>
-                            <th>
-                                Status Rujukan
+                                Poli
                             </th>
                             <th>
                                 Aksi
@@ -66,7 +56,7 @@
                 duration: 1000
             })
 
-           var tbl = $('#table_id').DataTable({
+            var tbl = $('#table_id').DataTable({
                 "ordering": false,
                 deferRender: true,
                 serverSide: true,
@@ -74,7 +64,7 @@
                 orderMulti: true,
                 stateSave: true,
                 ajax: {
-                    url: '{{ url('/rujukan/data/getData') }}',
+                    url: '{{ url('/kartu-berobat/data/getData') }}',
                     type: 'GET',
                     global: false,
                     data:function (e) {

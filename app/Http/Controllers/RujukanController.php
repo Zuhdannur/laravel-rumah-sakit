@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use PDF;
 
 class RujukanController extends Controller
 {
@@ -69,10 +70,14 @@ class RujukanController extends Controller
             <form method="post" action='. route('rujukan.destroy',$row->id_rujukan).'>
             <input name="_method" value="delete" hidden >
             <input name="_token" value='. csrf_token() .' hidden>
-            <button type="button" rel="tooltip" class="btn btn-danger btn-sm btn-icon btnDelete">
+            <button type="submit" rel="tooltip" class="btn btn-danger btn-sm btn-icon">
                     <i class="now-ui-icons ui-1_simple-remove"></i>
                  </button></form>&nbsp;
-                 <button class="btn btn-sm btn-icon"><i class="now-ui-icons files_paper"></i></button>&nbsp;
+                 <form method="post" action='. url('/rujukan/data/cetak') .'>
+                    <input name="id" value='. $row->id_rujukan .' hidden>
+                    <input name="_token" value='. csrf_token() .' hidden>
+                    <button class="btn btn-sm btn-icon" type="submit"><i class="now-ui-icons files_paper"></i></button>&nbsp;
+                 </form>
                  <button value="'. $row->id_rujukan .'" class="btn btn-sm btn-icon btn-success btnAcc" '. $hidden .'><i class="now-ui-icons ui-1_check"></i></button>
 </div>
                  ';
@@ -134,5 +139,13 @@ class RujukanController extends Controller
         return response()->json([
             "message" => "success"
         ]);
+    }
+
+    public function cetak(Request $request) {
+
+        $data['query'] = \App\Rujukan::find($request->id);
+
+        $pdf = PDF::loadView('report.rujukan_report',$data);
+        return $pdf->stream('rujukan.pdf');
     }
 }

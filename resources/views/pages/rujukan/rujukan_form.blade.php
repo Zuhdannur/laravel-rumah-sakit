@@ -39,7 +39,11 @@
                                 @endforeach
                             </select>
                         </div>
-
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Rekam Medis</label>
+                            <select class="form-control" name="id_rekam_medis" id="list_rekam_medis">
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Asal RS/Puskesmas</label>
                             <input class="form-control" id="exampleFormControlTextarea1" rows="2" name="asal">
@@ -125,6 +129,20 @@
                     }
                 }
             })
+
+            $("#list_rekam_medis").select2({
+                ajax: {
+                    url: '{{ url('/getRekamMedis') }}',
+                    data: function (params) {
+                        var query = {
+                            search: $("#list_pasien").val(),
+                            type: 'public'
+                        }
+                        return query;
+                    }
+                }
+            })
+
         })
     </script>
 @endpush

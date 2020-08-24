@@ -82,4 +82,22 @@ class ApiController extends Controller
 
     }
 
+    public function getRekamMedis(Request $request) {
+        $query = \App\RekamMedis::where('id_pasien',$request->search)->get();
+
+        $return = [];
+        foreach ($query as $item) {
+            $return[] = [
+                "id" => $item->id_rekam_medis,
+                "text" => $item->nomor_pendaftaran,
+                "value" => $item->id_rekam_medis
+            ];
+        }
+
+        $json = [
+            "results" => $return
+        ];
+        return response()->json($json);
+    }
+
 }

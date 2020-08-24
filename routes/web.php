@@ -46,8 +46,14 @@ Route::group(['middleware' => 'auth:web'] , function () {
     Route::prefix('/rujukan/data')->group(function (){
         Route::get('/getData','RujukanController@getData');
         Route::post('/acc','RujukanController@acc');
+        Route::post('/cetak','RujukanController@cetak');
     });
 
+    Route::resource('/kartu-berobat','KartuBerobatController');
+    Route::prefix('/kartu-berobat/data')->group(function (){
+        Route::get('/getData','KartuBerobatController@getData');
+        Route::post('/cetak','KartuBerobatController@cetak');
+    });
 
 });
 
@@ -55,6 +61,7 @@ Route::resource('/antrian','AntrianController');
 Route::get('/getPasien','ApiController@getPasien');
 Route::get('/getPoli','ApiController@getPoli');
 Route::post('/generateCode','ApiController@generateCode');
+Route::get('/getRekamMedis','ApiController@getRekamMedis');
 
 Route::resource('/login','LoginController');
 Route::resource('/register','RegisterController');

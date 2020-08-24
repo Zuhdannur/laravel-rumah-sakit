@@ -121,7 +121,7 @@
                     <b class="caret"></b>
                 </p>
             </a>
-            <div class="collapse @if($activePage == 'rekam-medis' or $activePage == 'apotik' or $activePage == 'rujukan') show @endif" id="ruangBerobat">
+            <div class="collapse @if($activePage == 'rekam-medis' or $activePage == 'apotik' or $activePage == 'rujukan' or $activePage == 'kartu-berobat') show @endif" id="ruangBerobat">
                 <ul class="nav">
                     <li class="@if ($activePage == 'rekam-medis') active @endif">
                         <a href="{{ route('rekam-medis.index') }}">
@@ -135,8 +135,8 @@
                             <p>{{ __('Rujukan') }}</p>
                         </a>
                     </li>
-                    <li class="@if ($activePage == '') active @endif">
-                        <a href="{{ route('pasien.index') }}">
+                    <li class="@if ($activePage == 'kartu-berobat') active @endif">
+                        <a href="{{ route('kartu-berobat.index') }}">
                             <i class="now-ui-icons design_image"></i>
                             <p>{{ __('Kartu Berobat') }}</p>
                         </a>

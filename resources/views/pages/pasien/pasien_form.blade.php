@@ -93,7 +93,7 @@
                             </div>
                             <div class="form-group">
                                 <label  for="exampleFormControlInput1">No. RM</label>
-                                <input type="text" class="form-control" placeholder="No. RM" name="nomor_ktp">
+                                <input type="text" class="form-control" placeholder="No. RM" name="no_rm">
                             </div>
                             <div class="form-group">
                                 <label  for="exampleFormControlInput1">No. KIS/FASKES</label>

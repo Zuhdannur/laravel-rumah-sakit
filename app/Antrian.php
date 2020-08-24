@@ -17,4 +17,9 @@ class Antrian extends Model
         return $this->hasOne('\App\Poli','id_poli','id_poli');
     }
 
+
+    public function pasien() {
+        return $this->hasOne('\App\Pasien','id_pasien','id_pasien');
+    }
+
 }
