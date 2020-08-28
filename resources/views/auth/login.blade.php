@@ -63,10 +63,10 @@
                 </div>
                 <div class="card-footer ">
                     <a  href="{{ route('antrian.index') }}" class="btn btn-primary btn-round btn-lg btn-block mb-3">{{ __('Masuk Sebagai Tamu') }}</a>
-                <button  type = "submit" class="btn btn-primary btn-round btn-lg btn-block mb-3">{{ __('Get Started') }}</button>
+                <button  type = "submit" class="btn btn-primary btn-round btn-lg btn-block mb-3">{{ __('Masuk') }}</button>
                 <div class="pull-left">
                     <h6>
-                    <a href="{{ route('register.index') }}" class="link footer-link">{{ __('Create Account') }}</a>
+{{--                    <a href="{{ route('register.index') }}" class="link footer-link">{{ __('Create Account') }}</a>--}}
                     </h6>
                 </div>
                 <div class="pull-right">
