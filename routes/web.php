@@ -58,6 +58,7 @@ Route::group(['middleware' => 'auth:web'] , function () {
 });
 
 Route::resource('/antrian','AntrianController');
+Route::post('/antrian/simpan','AntrianController@simpan')->name('antrian.simpan');
 Route::get('/getPasien','ApiController@getPasien');
 Route::get('/getPoli','ApiController@getPoli');
 Route::post('/generateCode','ApiController@generateCode');

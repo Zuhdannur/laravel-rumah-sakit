@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
 class AntrianController extends Controller
 {
     public function index() {
@@ -12,7 +11,7 @@ class AntrianController extends Controller
     }
 
     public function create() {
-
+        return view('pages.antrian.antrian_form');
     }
 
     public function store(Request $request) {
@@ -59,5 +58,28 @@ class AntrianController extends Controller
             "status" => 1
         ]);
         return redirect()->back()->with('success','Memanggil '.$antrian->kodefikasi->kodefikasi.'-'.$antrian->nomor_antrian);
+    }
+
+    public function simpan(Request $request) {
+        $validator = Validator::make($request->all(),[
+            'nama_pasien' => 'required',
+            'nama_KK' => 'required',
+            'nomor_ktp' => 'required',
+            'tgl_lahir' => 'required',
+            'nomor_kis' => 'required',
+            'agama' => 'required',
+            'jenis_kelamin' => 'required',
+            'status_peserta' => 'required',
+            'faskes' => 'required'
+        ]);
+
+        if($validator->fails()) {
+            return redirect()->back()->with('error',$validator->errors());
+        }
+        $input = $request->all();
+
+        $input['tgl_lahir'] = \Carbon\Carbon::createFromFormat('d/m/Y',$input['tgl_lahir']);
+        $create = \App\Pasien::create($input);
+        return redirect('/antrian')->with('success','Data Berhasil Diinput');
     }
 }

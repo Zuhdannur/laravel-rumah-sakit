@@ -38,6 +38,9 @@
                                 <!--Begin input email -->
                                 <div class="card-footer ">
                                     <button type="submit" class="btn btn-primary btn-round btn-lg">{{__('Ambil Nomor Antrian')}}</button>
+                                    <br> <br>
+                                    <p>Nomor Pasien Tidak Ada ?</p>
+                                    <a href="{{ route('antrian.create') }}" class="btn btn-primary btn-round btn-lg">{{__('Daftar Pasien')}}</a>
                                 </div>
                             </form>
                         </div>

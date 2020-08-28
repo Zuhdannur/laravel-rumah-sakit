@@ -64,30 +64,30 @@
   <!-- End Google Tag Manager -->
   <script>
     // Facebook Pixel Code Don't Delete
-    ! function(f, b, e, v, n, t, s) {
-      if (f.fbq) return;
-      n = f.fbq = function() {
-        n.callMethod ?
-          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-      };
-      if (!f._fbq) f._fbq = n;
-      n.push = n;
-      n.loaded = !0;
-      n.version = '2.0';
-      n.queue = [];
-      t = b.createElement(e);
-      t.async = !0;
-      t.src = v;
-      s = b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t, s)
-    }(window,
-      document, 'script', '//connect.facebook.net/en_US/fbevents.js');
-    try {
-      fbq('init', '111649226022273');
-      fbq('track', "PageView");
-    } catch (err) {
-      console.log('Facebook Track Error:', err);
-    }
+    // ! function(f, b, e, v, n, t, s) {
+    //   if (f.fbq) return;
+    //   n = f.fbq = function() {
+    //     n.callMethod ?
+    //       n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+    //   };
+    //   if (!f._fbq) f._fbq = n;
+    //   n.push = n;
+    //   n.loaded = !0;
+    //   n.version = '2.0';
+    //   n.queue = [];
+    //   t = b.createElement(e);
+    //   t.async = !0;
+    //   t.src = v;
+    //   s = b.getElementsByTagName(e)[0];
+    //   s.parentNode.insertBefore(t, s)
+    // }(window,
+    //   document, 'script', '//connect.facebook.net/en_US/fbevents.js');
+    // try {
+    //   fbq('init', '111649226022273');
+    //   fbq('track', "PageView");
+    // } catch (err) {
+    //   console.log('Facebook Track Error:', err);
+    // }
   </script>
 </head>
 
@@ -121,7 +121,6 @@
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="{{ asset('assets') }}/js/now-ui-dashboard.min.js?v=1.3.0" type="text/javascript"></script>
   <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-  <script src="{{ asset('assets') }}/demo/demo.js"></script>
   @stack('js')
 </body>
 
