@@ -13,7 +13,7 @@ class ApiController extends Controller
         foreach ($query as $item) {
             $return[] = [
                 "id" => $item->id_pasien,
-                "text" => $item->nama_pasien,
+                "text" => @$item->nomor_pasien. ' - '.$item->nama_pasien,
                 "value" => $item->id_pasien
             ];
         }

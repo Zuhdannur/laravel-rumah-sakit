@@ -33,6 +33,12 @@ class PasienController extends Controller
 
         $input['tgl_lahir'] = \Carbon\Carbon::createFromFormat('d/m/Y',$input['tgl_lahir']);
         $create = \App\Pasien::create($input);
+
+        $update = \App\Pasien::find($create->id_pasien);
+        $update->update([
+            "nomor_pasien" => "P".$create->id_pasien
+        ]);
+
         return redirect('/pasien')->with('success','Data Berhasil Diinput');
     }
 
